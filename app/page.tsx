@@ -191,11 +191,11 @@ export default function ShoppingCart() {
           {/* Toggle Button with 3 dots - Always visible, attached to card */}
           <button
             onClick={() => setIsCardOpen(!isCardOpen)}
-            className="bg-[#4A4A4A] p-3 rounded-l-lg shadow-md hover:bg-[#5A5A5A] transition-colors flex-shrink-0 self-start mt-[100px]"
+            className="bg-[#4A4A4A] px-2 py-6 rounded-l-2xl shadow-md hover:bg-[#5A5A5A] transition-colors flex-shrink-0 self-start mt-[100px]"
           >
-            <div className="flex flex-col gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#F4C430]"></div>
+            <div className="flex flex-col gap-3">
               <div className="w-2.5 h-2.5 rounded-full bg-[#6B6B6B]"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-[#F4C430]"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-[#6B6B6B]"></div>
             </div>
           </button>
