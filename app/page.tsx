@@ -21,7 +21,7 @@ export default function ShoppingCart() {
       color: "Blue",
       quantity: 2,
       price: 7500.0,
-      image: "/denim-shirt.jpg",
+      image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop",
     },
     {
       id: 2,
@@ -30,16 +30,16 @@ export default function ShoppingCart() {
       color: "Blue",
       quantity: 3,
       price: 9000.0,
-      image: "/denim-pants.jpg",
+      image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&h=200&fit=crop",
     },
     {
       id: 3,
-      name: "Sony Smartwat...",
+      name: "Sony Smartwatch",
       ref: "00482091",
       color: "Black",
       quantity: 1,
       price: 24500.0,
-      image: "/smartwatch.jpg",
+      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop",
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ export default function ShoppingCart() {
       color: "Brown",
       quantity: 1,
       price: 4500.0,
-      image: "/oxford-shoes.jpg",
+      image: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=200&h=200&fit=crop",
     },
   ]);
 
@@ -78,7 +78,7 @@ export default function ShoppingCart() {
   );
 
   const handleCheckout = () => {
-    alert("Procesando pago...");
+    alert("Processing payment...");
   };
 
   return (
@@ -107,10 +107,15 @@ export default function ShoppingCart() {
               className="bg-white rounded-xl shadow-sm p-3 grid grid-cols-[60px_1fr_auto] lg:grid-cols-[70px_1fr_auto] gap-3 items-center flex-shrink-0"
             >
               {/* Product Image */}
-              <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-lg overflow-hidden bg-white flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400 text-[10px]">
-                  IMG
-                </div>
+              <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-full overflow-hidden bg-white flex items-center justify-center">
+                <img 
+                  src={item.image} 
+                  alt={item.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%23e5e7eb" width="100" height="100"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="%239ca3af" font-size="12">IMG</text></svg>';
+                  }}
+                />
               </div>
 
               {/* Product Info */}
