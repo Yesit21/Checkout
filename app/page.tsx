@@ -83,70 +83,70 @@ export default function ShoppingCart() {
   return (
     <div className="relative h-screen bg-[#F5F5F5] flex overflow-hidden">
       {/* Left Section - Shopping Cart */}
-      <div className="w-full lg:w-[60%] bg-[#F5F5F5] p-5 lg:p-8 flex flex-col h-screen">
+      <div className="w-full lg:w-[60%] bg-[#F5F5F5] p-4 lg:p-6 flex flex-col h-screen">
         {/* Header */}
-        <div className="flex items-center gap-3 mb-5 flex-shrink-0">
-          <div className="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-white flex items-center justify-center shadow-sm">
-            <span className="text-xl lg:text-2xl font-bold text-black">Q</span>
+        <div className="flex items-center gap-3 mb-4 flex-shrink-0">
+          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+            <span className="text-xl font-bold text-black">Q</span>
           </div>
           <h1 className="text-lg lg:text-xl text-[#6B6B6B] font-light">
             Your Shopping Cart
           </h1>
         </div>
 
-        {/* Product List - Scrollable only if more than 4 items */}
-        <div className="flex flex-col gap-3 lg:gap-4 flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+        {/* Product List - Scrollable only if more than 7 items */}
+        <div className="flex flex-col gap-2.5 lg:gap-3 flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl lg:rounded-2xl shadow-sm p-3 lg:p-4 grid grid-cols-[65px_1fr_auto] lg:grid-cols-[75px_1fr_auto] gap-3 items-center flex-shrink-0"
+              className="bg-white rounded-xl shadow-sm p-3 grid grid-cols-[60px_1fr_auto] lg:grid-cols-[70px_1fr_auto] gap-3 items-center flex-shrink-0"
             >
               {/* Product Image */}
-              <div className="w-[65px] h-[65px] lg:w-[75px] lg:h-[75px] rounded-lg lg:rounded-xl overflow-hidden bg-white flex items-center justify-center">
+              <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-lg overflow-hidden bg-white flex items-center justify-center">
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400 text-[10px]">
                   IMG
                 </div>
               </div>
 
               {/* Product Info */}
-              <div className="flex flex-col gap-0.5">
-                <h3 className="font-semibold text-sm lg:text-[15px] text-black">
+              <div className="flex flex-col">
+                <h3 className="font-semibold text-sm text-black leading-tight">
                   {item.name}
                 </h3>
-                <p className="text-[10px] lg:text-[11px] text-[#BDBDBD]">Ref: {item.ref}</p>
-                <p className="text-xs lg:text-[13px] text-[#757575] mt-0.5">{item.color}</p>
+                <p className="text-[10px] text-[#BDBDBD] mt-0.5">Ref: {item.ref}</p>
+                <p className="text-xs text-[#757575] mt-0.5">{item.color}</p>
               </div>
 
               {/* Controls */}
-              <div className="flex items-center gap-3 lg:gap-5">
+              <div className="flex items-center gap-3 lg:gap-4">
                 {/* Quantity Controls */}
-                <div className="flex flex-col items-center gap-0.5">
+                <div className="flex flex-col items-center">
                   <button
                     onClick={() => updateQuantity(item.id, 1)}
-                    className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-[#E0E0E0] flex items-center justify-center text-[#616161] hover:bg-[#D0D0D0] transition-colors text-xs lg:text-sm"
+                    className="w-5 h-5 rounded-full bg-[#E0E0E0] flex items-center justify-center text-[#616161] hover:bg-[#D0D0D0] transition-colors text-xs"
                   >
                     +
                   </button>
-                  <span className="text-xs lg:text-sm font-medium text-black">
+                  <span className="text-xs font-medium text-black my-0.5">
                     {item.quantity}
                   </span>
                   <button
                     onClick={() => updateQuantity(item.id, -1)}
-                    className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-[#E0E0E0] flex items-center justify-center text-[#616161] hover:bg-[#D0D0D0] transition-colors text-xs lg:text-sm"
+                    className="w-5 h-5 rounded-full bg-[#E0E0E0] flex items-center justify-center text-[#616161] hover:bg-[#D0D0D0] transition-colors text-xs"
                   >
                     −
                   </button>
                 </div>
 
                 {/* Price */}
-                <span className="font-semibold text-sm lg:text-[15px] whitespace-nowrap text-black">
+                <span className="font-semibold text-xs lg:text-sm whitespace-nowrap text-black">
                   {item.price.toFixed(2)} NGN
                 </span>
 
                 {/* Remove Button */}
                 <button
                   onClick={() => removeItem(item.id)}
-                  className="text-[#9E9E9E] hover:text-[#616161] text-lg lg:text-xl transition-colors"
+                  className="text-[#9E9E9E] hover:text-[#616161] text-lg transition-colors"
                 >
                   ×
                 </button>
@@ -156,14 +156,14 @@ export default function ShoppingCart() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between mt-4 pt-4 flex-shrink-0">
-          <button className="flex items-center gap-2 text-[#424242] hover:text-black transition-colors text-sm lg:text-[15px]">
+        <div className="flex items-center justify-between mt-3 pt-3 flex-shrink-0">
+          <button className="flex items-center gap-2 text-[#424242] hover:text-black transition-colors text-sm">
             <span>←</span>
             <span>Back to Shop</span>
           </button>
           <div className="flex items-center gap-2">
-            <span className="text-[#424242] text-sm lg:text-[15px]">Subtotal:</span>
-            <span className="text-lg lg:text-xl font-bold text-black">
+            <span className="text-[#424242] text-sm">Subtotal:</span>
+            <span className="text-lg font-bold text-black">
               {subtotal.toFixed(2)} NGN
             </span>
           </div>
